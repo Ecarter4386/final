@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<% unless @product.image.blank? %>
+  <%= image_tag @product.image.url, class: "img-responsive" %>
+<% end %>
 
 
 <p>

@@ -1,0 +1,27 @@
+<h1>My Cart</h1>
+<div class="row">
+	<div class="col-md-4">
+		<div class="well">
+			<div>
+				<% @line_items.each do |line_item| %>
+					<ul>
+						<%= image_tag line_item.product.image.url, class: "img-responsive"%>
+						<li><%= line_item.product.name %></li>
+						<li><%= number_to_currency line_item.product.price %></li>
+						<li>Qty: <%= line_item.quantity%></li>
+						<li>
+							<%= form_tag edit_order_path(id: line_item.id), method: :put do %>
+			      	<%= number_field_tag :quantity, nil, value: line_item.quantity%>
+			      	<%= submit_tag "Change quantity", class: "btn btn-primary"%>
+			      	<%end%>
+						</li>
+						<li>Subtotal: <%= number_to_currency line_item.line_item_total %></li>
+						
+					</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+ <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success"%>
+<%end%>
