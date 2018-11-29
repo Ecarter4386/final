@@ -8,7 +8,7 @@
 				<h3><%= link_to product.name, product %></h3>
 				<p><%= number_to_currency product.price %></p>
 				<p>
-					<a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%=  product.id %>">
+					<a href="#" class="btn btn-warning btn-med" data-toggle="modal" data-target="#myModal_<%=  product.id %>">
 						<span class="glyphicon glyphicon-plus"></span> Quick Info
 					</a>
 				</p>
@@ -33,7 +33,7 @@
 		      <div class="modal-footer">
 		      	<%= form_tag add_to_cart_path do %>
       	<%= hidden_field_tag :product_id, product.id%>
-      	<%= number_field_tag :quantity, nil, placeholder: "How many?"%>
+      	<%= number_field_tag :quantity, 1, min: 1, max: product.quantity, placeholder: "How many?"%>
       	<%= submit_tag "Add to Cart", class: "btn btn-primary"%>
       	<%end%>
 		      </div>
@@ -46,9 +46,7 @@
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
