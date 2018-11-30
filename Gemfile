@@ -24,6 +24,7 @@ gem 'better_errors', group: :development
 gem 'binding_of_caller'
 gem 'hirb'
 gem 'stripe'
+gem 'fog-aws'
 gem 'figaro'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
